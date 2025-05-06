@@ -35,7 +35,7 @@ def main():
                 room_cost = input("Enter the cost of room: ")
                 room_capacity = input("Enter the capacity of room: ")
                 room_type = input("enter the type of room(economy, standard, deluxe): ")
-                room.add(room_hotel, room_capacity, room_cost, room_type)
+                room.add(room_hotel, room_type, room_capacity, room_cost)
             case "3":
                 print("реєстрація нових клієнтів з вказанням основної контактної інформації")
                 customer_name = input("Enter customer`s name: ")
