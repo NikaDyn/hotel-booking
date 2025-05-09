@@ -25,7 +25,7 @@ def main():
 
         match choice:
             case "1":
-                print("Creating hotel:\n")
+                print("\nCreating hotel:\n")
                 hotel_name = input("Enter the name of hotel: ")
                 if hotel.add(hotel_name):
                     print("Hotel created")
@@ -34,7 +34,7 @@ def main():
                 print("-" * 20)
 
             case "2":
-                print("Creating room: \n")
+                print("\nCreating room: \n")
                 hotel.print_hotel()
                 room_hotel = input("Enter the hotel`s index: ")
 
@@ -54,7 +54,7 @@ def main():
                 print("-" * 20)
 
             case "3":
-                print("Adding new user: \n")
+                print("\nAdding new user: \n")
                 customer_name = input("Enter customer`s name: ")
                 customer_phone = input("Enter customer`s phone number(example 0955224548): ")
                 if customer.add(customer_name, customer_phone):
@@ -65,7 +65,7 @@ def main():
                 print("-" * 20)
 
             case "4":
-                print("Booking: \n")
+                print("\nBooking: \n")
                 hotel.print_hotel()
                 book_hotel = input("Enter notel`s id: ")
                 book_room = input("Enter room`s id: ")
@@ -84,7 +84,7 @@ def main():
                 print("-" * 20)
 
             case "5":
-                print("Deleting booking: \n")
+                print("\nDeleting booking: \n")
 
                 booking.print_booking()
 
@@ -94,6 +94,8 @@ def main():
                     print("Booking deleted")
                 else:
                     print("Invalid parameter")
+
+                print("-" * 20)
 
             case "6":
                 print("Exiting....")
