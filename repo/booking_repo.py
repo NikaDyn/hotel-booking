@@ -7,9 +7,10 @@ class BookingRepo:
         self.current_index = 1
 
     def add(self, booking: Booking):
-        self.bookings[self.current_index] = booking
+        self.bookings[str(self.current_index)] = booking
         booking.book_id = self.current_index
         self.current_index += 1
+        return booking
 
     def remove(self, book_id):
         return self.bookings.pop(book_id)

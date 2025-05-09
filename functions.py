@@ -1,23 +1,38 @@
 from datetime import datetime
 
 
-def validate_date(*args):
-    for date in args:
-        dates = list(map(int, date.split(".")))
-        if not (0 < dates[0] < 32 and 0 < dates[1] < 13 and 2024 < dates[2]):
-            return False
+def validate_date(date: str):
+    if date.count(".") != 2:
+        return False
 
-    return True
+    parts = date.split(".")
+    if not all(part.isdigit() for part in parts):
+        return False
 
+    day, month, year = map(int, parts)
+    if not (1 <= day <= 31 and 1 <= month <= 12 and year >= 2025):
+        return False
 
-def check_dates(*args):
-    lst_dates = []
-    for date in args:
-        dates = list(map(int, date.split(".")))
-        date1 = datetime(dates[2], dates[1], dates[0])
-        lst_dates.append(date1)
-
-    if lst_dates[0] < lst_dates[1]:
+    if month == 2 and day > 29:
+        return False
+    if month in [4, 6, 9, 11] and day > 30:
         return False
 
     return True
+
+
+def check_dates(date1: str, date2: str):
+    d1 = list(map(int, date1.split(".")))
+    d2 = list(map(int, date2.split(".")))
+
+    dt1 = datetime(d1[2], d1[1], d1[0])
+    dt2 = datetime(d2[2], d2[1], d2[0])
+
+    return dt1 <= dt2
+
+
+def validate_phone(phone_number: str):
+    if phone_number.isdigit() and len(phone_number) == 10:
+        return True
+
+    return False
