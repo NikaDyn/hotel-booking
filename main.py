@@ -73,10 +73,12 @@ def main():
                 customer.print_customer()
                 book_customer = input("Enter customer`s id: ")
 
+                peoples = input("Enter number of peoples: ")
+
                 check_in = input("Enter check in date(dd.mm.yyyy): ")
                 check_out = input("Enter check out date(dd.mm.yyyy): ")
 
-                if booking.add(book_hotel, book_room, book_customer, check_in, check_out):
+                if booking.add(book_hotel, book_room, book_customer, peoples, check_in, check_out):
                     print("Room booked")
                 else:
                     print("Invalid parameter")
@@ -90,7 +92,7 @@ def main():
 
                 book_id = input("Enter booking`s id: ")
 
-                if booking.repo.remove(book_id):
+                if booking.remove(book_id):
                     print("Booking deleted")
                 else:
                     print("Invalid parameter")
